@@ -1,0 +1,11 @@
+version "4.3"
+
+#include "zscript/DRUMammo.txt"
+#include "zscript/Thompson.zs"
+#include "zscript/Reaper.zs"
+#include "zscript/ReaperGL.zs"
+#include "zscript/ReaperZM.zs"
+#include "zscript/BrontoBuddy.zs"
+#include "zscript/Spawns.txt"
+#include "zscript/RIammo.txt"
+

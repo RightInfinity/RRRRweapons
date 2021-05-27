@@ -1,0 +1,17 @@
+weapons/tmpboltback	TmpBoltB	$volume weapons/tmpboltback 0.8
+weapons/tmpboltfwd	TmpBoltF	$volume weapons/tmpboltfwd 0.8
+weapons/tmpdrumfin	TmpDrmFn	$volume weapons/tmpdrumfin 0.8
+weapons/tmpdrumin	TmpDrmIn	$volume weapons/tmpdrumin 0.8
+weapons/tmpdrumout	TmpDrmOt	$volume weapons/tmpdrumout 0.8
+weapons/tmpshot1	TmpShot1	$volume weapons/tmpshot1 0.8
+weapons/tmpshot2	TmpShot2	$volume weapons/tmpshot2 0.8
+
+$random weapons/tmpshot {weapons/tmpshot1 weapons/tmpshot2}
+$pitchshift weapons/tmpshot 3
+
+weapons/rprbolt		rprbolt		$volume weapons/rprbolt 0.8
+weapons/rprdrmin	rprdrmin	$volume weapons/rprdrmin 0.8
+weapons/rprdrmot	rprdrmot	$volume weapons/rprdrmot 0.8
+weapons/rprslap		rprslap		$volume weapons/rprslap 0.8
+weapons/rprslap		rprslap		$volume weapons/rprslap 0.8
+weapons/rprbang		dsshotg
