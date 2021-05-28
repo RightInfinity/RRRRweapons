@@ -63,7 +63,7 @@ class RIReaperZM:RIReaper{
 			spread:spread,speedfactor:speedfactor,amount:7
 		);
 		distantnoise.make(p,"world/shotgunfar");
-		caller.A_PlaySound("weapons/rprbang",CHAN_WEAPON);
+		caller.A_StartSound("weapons/rprbang",CHAN_WEAPON);
 		return shotpower;
 	}
 	action void A_FireReaper(){
@@ -444,7 +444,7 @@ class RIReaperZM:RIReaper{
 		#### # 1 offset(6,0){
 			invoker.weaponstatus[0]^=ASHTF_GLMODE;
 			A_SetCrosshair(21);
-			A_PlaySound("weapons/pocket",CHAN_WEAPON);
+			A_StartSound("weapons/pocket",CHAN_WEAPON);
 			A_SetHelpText();
 		}goto nope;
 	
@@ -473,7 +473,7 @@ class RIReaperZM:RIReaper{
 		#### # 1 bright{
 			A_Light1();
 			HDFlashAlpha(-16);
-			A_PlaySound("weapons/rifle",CHAN_WEAPON);
+			A_StartSound("weapons/rifle",CHAN_WEAPON);
 			A_ZoomRecoil(max(0.95,1.-0.05*min(invoker.weaponstatus[ASHTS_ZAUTO],3)));
 
 			//shoot the bullet
@@ -498,11 +498,11 @@ class RIReaperZM:RIReaper{
 	jam:
 		ASTL JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 1 offset(-1,36){
-			A_PlaySound("weapons/riflejam",CHAN_WEAPON);
+			A_StartSound("weapons/riflejam",CHAN_WEAPON);
 			invoker.weaponstatus[0]|=ASHTF_CHAMBERBROKEN;
 			invoker.weaponstatus[ASHTS_FLAGS]&=~ASHTF_GZCHAMBER;
 		}
-		#### # 1 offset(1,30) A_PlaySound("weapons/riflejam",6);
+		#### # 1 offset(1,30) A_StartSound("weapons/riflejam",6);
 		goto nope;
 
 	shootgun:
@@ -539,7 +539,7 @@ class RIReaperZM:RIReaper{
 				invoker.weaponstatus[ASHTS_FLAGS]|=ASHTF_GZCHAMBER;
 			}else{
 				invoker.weaponstatus[ASHTS_ZMAG]=min(invoker.weaponstatus[ASHTS_ZMAG],0);
-				A_PlaySound("weapons/rifchamber",5);
+				A_StartSound("weapons/rifchamber",5);
 			}
 			if(brokenround()){
 				setweaponstate("jam");
@@ -574,8 +574,8 @@ class RIReaperZM:RIReaper{
 				(invoker.weaponstatus[ASHTS_ZMAG]>=0)	//something to detach
 				&&(PressingAltReload()||PressingUnload())	//trying to detach
 			){
-				A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
-				A_PlaySound("weapons/rifleload",5);
+				A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
+				A_StartSound("weapons/rifleload",5);
 				HDMagAmmo.SpawnMag(self,"HD4mMag",invoker.weaponstatus[ASHTS_ZMAG]);
 				invoker.weaponstatus[ASHTS_ZMAG]=-1;
 			}
@@ -639,13 +639,13 @@ class RIReaperZM:RIReaper{
 				invoker.weaponstatus[ASHTS_FLAGS]|=ASHTF_JUSTUNLOAD;
 			A_SetPitch(pitch-0.3,SPF_INTERPOLATE);
 			A_SetAngle(angle-0.3,SPF_INTERPOLATE);
-			A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+			A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		}
 		ASTK JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 4 offset(-12,40){
 			A_SetPitch(pitch-0.3,SPF_INTERPOLATE);
 			A_SetAngle(angle-0.3,SPF_INTERPOLATE);
-			A_PlaySound("weapons/rifleload",CHAN_WEAPON);
+			A_StartSound("weapons/rifleload",CHAN_WEAPON);
 		}
 		#### # 20 offset(-14,44){
 			int inmag=invoker.weaponstatus[ASHTS_ZMAG]%100;
@@ -658,7 +658,7 @@ class RIReaperZM:RIReaper{
 				A_SetTics(1);
 			}else{
 				HDMagAmmo.GiveMag(self,"HD4mMag",inmag);
-				A_PlaySound("weapons/pocket",CHAN_WEAPON);
+				A_StartSound("weapons/pocket",CHAN_WEAPON);
 				if(inmag<51)A_Log(HDCONST_426MAGMSG,true);
 			}
 		}
@@ -675,7 +675,7 @@ class RIReaperZM:RIReaper{
 		#### # 12{
 			let zmag=HD4mMag(findinventory("HD4mMag"));
 			if(!zmag){setweaponstate("reloadend");return;}
-			A_PlaySound("weapons/pocket",CHAN_WEAPON);
+			A_StartSound("weapons/pocket",CHAN_WEAPON);
 			if(zmag.DirtyMagsOnly())invoker.weaponstatus[0]|=ASHTF_LOADINGDIRTY;
 			else{
 				invoker.weaponstatus[0]&=~ASHTF_LOADINGDIRTY;
@@ -685,7 +685,7 @@ class RIReaperZM:RIReaper{
 		#### # 2 A_JumpIf(invoker.weaponstatus[0]&ASHTF_LOADINGDIRTY,"loadmagdirty");
 	loadmagclean:
 		ASTK JIHGFEDCBA 0 A_ReaperSpriteSelect();
-		#### # 8 offset(-15,45)A_PlaySound("weapons/rifleload",CHAN_WEAPON);
+		#### # 8 offset(-15,45)A_StartSound("weapons/rifleload",CHAN_WEAPON);
 		ASTJ JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 1 offset(-14,44){
 			let zmag=HD4mMag(findinventory("HD4mMag"));
@@ -695,7 +695,7 @@ class RIReaperZM:RIReaper{
 				return;
 			}
 			invoker.weaponstatus[ASHTS_ZMAG]=zmag.TakeMag(true);
-			A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+			A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		}goto ZMchamber_manual;
 	loadmagdirty:
 		ASTJ JIHGFEDCBA 0 A_ReaperSpriteSelect();
@@ -703,7 +703,7 @@ class RIReaperZM:RIReaper{
 			if(PressingReload())invoker.weaponstatus[0]|=ASHTF_STILLPRESSINGRELOAD;
 			else invoker.weaponstatus[0]&=~ASHTF_STILLPRESSINGRELOAD;
 		}
-		#### # 3 offset(-15,45)A_PlaySound("weapons/rifleload",CHAN_WEAPON);
+		#### # 3 offset(-15,45)A_StartSound("weapons/rifleload",CHAN_WEAPON);
 		#### # 1 offset(-15,42)A_WeaponMessage(HDCONST_426MAGMSG,70);
 		#### # 1 offset(-15,41){
 			bool prr=PressingAltReload();
@@ -718,7 +718,7 @@ class RIReaperZM:RIReaper{
 		goto nope;
 	reallyloadmagdirty:
 		ASTL JIHGFEDCBA 0 A_ReaperSpriteSelect();
-		#### # 1 offset(-14,44)A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+		#### # 1 offset(-14,44)A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		#### # 8 offset(-18,50){
 			let zmag=HD4mMag(findinventory("HD4mMag"));
 			if(!zmag){setweaponstate("reloadend");return;}
@@ -727,8 +727,8 @@ class RIReaperZM:RIReaper{
 				-frandom(0.4,0.6),frandom(2.,3.)
 				-frandom(0.2,0.3),frandom(1.,1.6)
 			);
-			A_PlaySound("weapons/rifleclick2",6);
-			A_PlaySound("weapons/smack",7);
+			A_StartSound("weapons/rifleclick2",6);
+			A_StartSound("weapons/smack",7);
 
 			string realmessage=HDCONST_426MAGMSG;
 			realmessage=realmessage.left(random(13,20));
@@ -746,7 +746,7 @@ class RIReaperZM:RIReaper{
 				&& !(invoker.weaponstatus[ASHTS_FLAGS]&ASHTF_GZCHAMBER)
 				&& invoker.weaponstatus[ASHTS_ZMAG]%100>0
 			){
-				A_PlaySound("weapons/rifleclick");
+				A_StartSound("weapons/rifleclick");
 				if(invoker.weaponstatus[ASHTS_ZMAG]==51)invoker.weaponstatus[ASHTS_ZMAG]=49;
 				else invoker.weaponstatus[ASHTS_ZMAG]--;
 				invoker.weaponstatus[ASHTS_FLAGS]|=ASHTF_GZCHAMBER;
@@ -785,17 +785,17 @@ class RIReaperZM:RIReaper{
 					SXF_NOCHECKPOSITION
 				);
 				invoker.weaponstatus[ASHTS_FLAGS]&=~ASHTF_GZCHAMBER;
-				A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+				A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 			}else if(!random(0,4)){
 				invoker.weaponstatus[0]&=~ASHTF_CHAMBERBROKEN;
 				invoker.weaponstatus[ASHTS_FLAGS]&=~ASHTF_GZCHAMBER;
-				A_PlaySound("weapons/rifleclick");
+				A_StartSound("weapons/rifleclick");
 				for(int i=0;i<3;i++)A_SpawnItemEx("TinyWallChunk",0,0,20,
 					random(4,7),random(-2,2),random(-2,1),0,SXF_NOCHECKPOSITION
 				);
 				if(!random(0,5))A_SpawnItemEx("HDSmokeChunk",12,0,height-12,4,frandom(-2,2),frandom(2,4));
 			}else if(invoker.weaponstatus[0]&ASHTF_CHAMBERBROKEN){
-				A_PlaySound("weapons/smack",CHAN_WEAPON);
+				A_StartSound("weapons/smack",CHAN_WEAPON);
 			}
 		}goto reloadend;
 
@@ -855,7 +855,7 @@ class RIReaperZM:RIReaper{
 			);
 
 			A_ChangeVelocity(frandom(-0.4,0.1),frandom(-0.1,0.08),1,CVF_RELATIVE);
-			A_PlaySound("weapons/rifle",CHAN_VOICE);
+			A_StartSound("weapons/rifle",CHAN_VOICE);
 			invoker.weaponstatus[ASHTS_HEAT]+=random(3,5);
 			angle+=frandom(2,-7);
 			pitch+=frandom(-4,4);

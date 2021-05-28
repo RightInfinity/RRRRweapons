@@ -58,7 +58,7 @@ class RIReaperGL:RIReaper{
 			spread:spread,speedfactor:speedfactor,amount:7
 		);
 		distantnoise.make(p,"world/shotgunfar");
-		caller.A_PlaySound("weapons/rprbang",CHAN_WEAPON);
+		caller.A_StartSound("weapons/rprbang",CHAN_WEAPON);
 		return shotpower;
 	}
 	action void A_FireReaper(){
@@ -346,7 +346,7 @@ class RIReaperGL:RIReaper{
 		#### # 2 offset(0,15){
 			A_FireHDGL();
 			invoker.weaponstatus[ASHTS_FLAGS]&=~ASHTF_GZCHAMBER;
-			A_PlaySound("weapons/grenadeshot",CHAN_WEAPON);
+			A_StartSound("weapons/grenadeshot",CHAN_WEAPON);
 			A_ZoomRecoil(0.95);
 		}
 		#### # 2 A_MuzzleClimb(
@@ -399,9 +399,9 @@ class RIReaperGL:RIReaper{
 			A_MuzzleClimb(-0.3,-0.3);
 		}
 		#### # 2 offset(8,48){
-			A_PlaySound("weapons/grenopen",5);
+			A_StartSound("weapons/grenopen",5);
 			A_MuzzleClimb(-0.3,-0.3);
-			if(invoker.weaponstatus[ASHTS_FLAGS]&ASHTF_GZCHAMBER)A_PlaySound("weapons/grenreload",CHAN_WEAPON);
+			if(invoker.weaponstatus[ASHTS_FLAGS]&ASHTF_GZCHAMBER)A_StartSound("weapons/grenreload",CHAN_WEAPON);
 		}
 		ASTK JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 10 offset(10,49){
@@ -419,25 +419,25 @@ class RIReaperGL:RIReaper{
 					SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH
 				);
 			}else{
-				A_PlaySound("weapons/pocket",5);
+				A_StartSound("weapons/pocket",5);
 				A_GiveInventory("HDRocketAmmo",1);
 				A_MuzzleClimb(frandom(0.8,-0.2),frandom(0.4,-0.2));
 			}
 		}
 		#### # 0 A_JumpIf(invoker.weaponstatus[ASHTS_FLAGS]&ASHTF_JUSTUNLOAD,"greloadend");
 	loadgrenade:
-		#### # 4 offset(10,50) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 4 offset(10,50) A_StartSound("weapons/pocket",CHAN_WEAPON);
 		#### # 8 offset(10,50) A_MuzzleClimb(frandom(-0.2,0.8),frandom(-0.2,0.4));
 		#### # 8 offset(10,50) A_MuzzleClimb(frandom(-0.2,0.8),frandom(-0.2,0.4));
 		#### # 8 offset(10,50) A_MuzzleClimb(frandom(-0.2,0.8),frandom(-0.2,0.4));
 		#### # 18 offset(8,50){
 			A_TakeInventory("HDRocketAmmo",1,TIF_NOTAKEINFINITE);
 			invoker.weaponstatus[ASHTS_FLAGS]|=ASHTF_GZCHAMBER;
-			A_PlaySound("weapons/grenreload",CHAN_WEAPON);
+			A_StartSound("weapons/grenreload",CHAN_WEAPON);
 		}
 	greloadend:
 		ASTJ JIHGFEDCBA 0 A_ReaperSpriteSelect();
-		#### # 4 offset(4,44) A_PlaySound("weapons/grenopen",CHAN_WEAPON);
+		#### # 4 offset(4,44) A_StartSound("weapons/grenopen",CHAN_WEAPON);
 		ASTL JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 1 offset(0,40);
 		#### # 1 offset(0,34) A_MuzzleClimb(frandom(-2.4,0.2),frandom(-1.4,0.2));

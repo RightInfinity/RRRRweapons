@@ -266,7 +266,7 @@ class RIThompson:HDWeapon{
 				invoker.weaponstatus[TMPS_MAG]--;
 				invoker.weaponstatus[TMPS_CHAMBER]=0;
 				if(invoker.weaponstatus[TMPS_MAG]<=0){
-					A_PlaySound("weapons/tmpboltfin",CHAN_WEAPON);
+					A_StartSound("weapons/tmpboltfin",CHAN_WEAPON);
 				}
 			}
 		}
@@ -290,7 +290,7 @@ class RIThompson:HDWeapon{
 			let bbb=HDBulletActor.FireBullet(self,"HDB_9",speedfactor:1.2);
 			A_AlertMonsters();
 			A_ZoomRecoil(0.95);
-			A_PlaySound("weapons/tmpshot",CHAN_WEAPON, 2.5);
+			A_StartSound("weapons/tmpshot",CHAN_WEAPON, volume:2.5);
 			invoker.weaponstatus[TMPS_CHAMBER]=1;
 		}
 
@@ -301,17 +301,17 @@ class RIThompson:HDWeapon{
 		TNT1 A 0 A_MuzzleClimb(-frandom(0.4,0.6),-frandom(0.5,0.8),-frandom(0.4,0.6),-frandom(0.5,0.8));
 		goto lightdone;
 	boxmagclick:
-		#### # 0 A_PlaySound("weapons/smgchamber",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/smgchamber",CHAN_WEAPON);
 		goto nope;
 	dropboltdrum:
 		#### # 3;
 		#### # 0{
 			invoker.weaponstatus[TMPS_CHAMBER]=0;
-			A_PlaySound("weapons/tmpdrumfin",CHAN_WEAPON, 2.5);
+			A_StartSound("weapons/tmpdrumfin",CHAN_WEAPON, volume:2.5);
 		}
 		goto nope;
 	unloadchamber:
-		#### # 0 A_PlaySound("weapons/smgchamber",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/smgchamber",CHAN_WEAPON);
 		#### # 1{
 			invoker.weaponstatus[TMPS_CHAMBER]=0;
 		}goto nope;
@@ -384,11 +384,11 @@ class RIThompson:HDWeapon{
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
 		#### # 4 offset(21,38);
 		TMPE ABCD 0 A_ThompsonSpriteSelect();
-		#### # 5 offset(28,42) A_PlaySound("weapons/tmpdrumout",CHAN_WEAPON);
+		#### # 5 offset(28,42) A_StartSound("weapons/tmpdrumout",CHAN_WEAPON);
 		TMPF ABCD 0 A_ThompsonSpriteSelect();
 		#### # 6 offset(34,54){
 			A_MuzzleClimb(0.3,0.4);
-			A_PlaySound("weapons/smgmagmove",CHAN_WEAPON);
+			A_StartSound("weapons/smgmagmove",CHAN_WEAPON);
 		}
 		TMPG ABCD 0 A_ThompsonSpriteSelect();
 		#### # 5 offset(36,56);
@@ -408,7 +408,7 @@ class RIThompson:HDWeapon{
 				setweaponstate("magout");
 			}else{
 				HDMagAmmo.GiveMag(self,"RITmpsD70",magamt);
-				A_PlaySound("weapons/pocket",CHAN_WEAPON);
+				A_StartSound("weapons/pocket",CHAN_WEAPON);
 				setweaponstate("pocketmag");
 			}
 		}
@@ -422,12 +422,12 @@ class RIThompson:HDWeapon{
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
 		#### # 4 offset(21,38);
 		TMPI ABCD 0 A_ThompsonSpriteSelect();
-		#### # 5 offset(21,38)A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 5 offset(21,38)A_StartSound("weapons/pocket",CHAN_WEAPON);
 		TMPJ ABCD 0 A_ThompsonSpriteSelect();
 		#### # 5 offset(21,38);
 		TMPK ABCD 0 A_ThompsonSpriteSelect();
 		#### # 3 offset(21,38){
-			A_PlaySound("weapons/tmpboltback",CHAN_WEAPON);
+			A_StartSound("weapons/tmpboltback",CHAN_WEAPON);
 			invoker.weaponstatus[TMPS_CHAMBER]=2;
 		}
 		#### # 2 offset(20,36);
@@ -436,11 +436,11 @@ class RIThompson:HDWeapon{
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
 		#### # 4 offset(25,39);
 		TMPE ABCD 0 A_ThompsonSpriteSelect();
-		#### # 4 offset(28,42) A_PlaySound("weapons/tmpdrumout",CHAN_WEAPON);
+		#### # 4 offset(28,42) A_StartSound("weapons/tmpdrumout",CHAN_WEAPON);
 		TMPF ABCD 0 A_ThompsonSpriteSelect();
 		#### # 5 offset(34,54){
 			A_MuzzleClimb(0.3,0.4);
-			A_PlaySound("weapons/smgmagmove",CHAN_WEAPON);
+			A_StartSound("weapons/smgmagmove",CHAN_WEAPON);
 		}
 		TMPG ABCD 0 A_ThompsonSpriteSelect();
 		#### # 5 offset(36,56);
@@ -460,7 +460,7 @@ class RIThompson:HDWeapon{
 				setweaponstate("magout");
 			}else{
 				HDMagAmmo.GiveMag(self,"RITmpsD70",magamt);
-				A_PlaySound("weapons/pocket",CHAN_WEAPON);
+				A_StartSound("weapons/pocket",CHAN_WEAPON);
 				setweaponstate("pocketmag");
 			}
 		}
@@ -474,11 +474,11 @@ class RIThompson:HDWeapon{
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
 		#### # 3 offset(21,38);
 		TMPE ABCD 0 A_ThompsonSpriteSelect();
-		#### # 4 offset(28,42) A_PlaySound("weapons/tmpdrumout",CHAN_WEAPON);
+		#### # 4 offset(28,42) A_StartSound("weapons/tmpdrumout",CHAN_WEAPON);
 		TMPF ABCD 0 A_ThompsonSpriteSelect();
 		#### # 4 offset(34,54){
 			A_MuzzleClimb(0.3,0.4);
-			A_PlaySound("weapons/smgmagmove",CHAN_WEAPON);
+			A_StartSound("weapons/smgmagmove",CHAN_WEAPON);
 		}
 		TMPG ABCD 0 A_ThompsonSpriteSelect();
 		#### # 4 offset(36,56);
@@ -498,7 +498,7 @@ class RIThompson:HDWeapon{
 				setweaponstate("magout");
 			}else{
 				HDMagAmmo.GiveMag(self,"HD9mMag30",magamt);
-				A_PlaySound("weapons/pocket",CHAN_WEAPON);
+				A_StartSound("weapons/pocket",CHAN_WEAPON);
 				setweaponstate("pocketmag");
 			}
 		}
@@ -506,9 +506,9 @@ class RIThompson:HDWeapon{
 		// #### # 0 A_Log("pocket",true);
 		TMPD B 0;
 		#### # 7 offset(34,54) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
-		#### # 7 offset(36,52) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 7 offset(36,52) A_StartSound("weapons/pocket",CHAN_WEAPON);
 		#### # 7 offset(36,54) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
-		#### # 7 offset(34,54) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 7 offset(34,54) A_StartSound("weapons/pocket",CHAN_WEAPON);
 	magout:
 		TMPD B 0;
 		#### # 0{
@@ -536,7 +536,7 @@ class RIThompson:HDWeapon{
 	loadmag:
 		// #### # 0 A_Log("loadmag",true);
 		TMPD B 0;
-		#### # 0 A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/pocket",CHAN_WEAPON);
 		#### # 1{
 			invoker.weaponstatus[TMPS_MAG]=0;
 			invoker.weaponstatus[TMPS_BOXER]=0;
@@ -547,7 +547,7 @@ class RIThompson:HDWeapon{
 		TMPF ABCD 0 A_ThompsonSpriteSelect();
 		#### # 8 offset(30,48) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
 		TMPE ABCD 0 A_ThompsonSpriteSelect();
-		#### # 6 offset(24,44) A_PlaySound("weapons/smgmagmove",CHAN_WEAPON);
+		#### # 6 offset(24,44) A_StartSound("weapons/smgmagmove",CHAN_WEAPON);
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
 		#### # 4 offset(12,38);
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
@@ -558,7 +558,7 @@ class RIThompson:HDWeapon{
 			let mmm=hdmagammo(findinventory("RITmpsD70"));
 			if(mmm){
 				invoker.weaponstatus[TMPS_MAG]=mmm.TakeMag(true);
-				A_PlaySound("weapons/tmpdrumin",CHAN_BODY);
+				A_StartSound("weapons/tmpdrumin",CHAN_BODY);
 			}
 			if(
 				invoker.weaponstatus[TMPS_MAG]<1
@@ -569,13 +569,13 @@ class RIThompson:HDWeapon{
 	loadboxmag:
 		// // #### # 0 A_Log("loadboxmag",true);
 		TMPD B 0;
-		#### # 0 A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/pocket",CHAN_WEAPON);
 		TMPG ABCD 0 A_ThompsonSpriteSelect();
 		#### # 6 offset(34,54) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
 		TMPF ABCD 0 A_ThompsonSpriteSelect();
 		#### # 5 offset(30,48) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
 		TMPE ABCD 0 A_ThompsonSpriteSelect();
-		#### # 4 offset(24,44) A_PlaySound("weapons/smgmagmove",CHAN_WEAPON);
+		#### # 4 offset(24,44) A_StartSound("weapons/smgmagmove",CHAN_WEAPON);
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
 		#### # 2 offset(12,38);
 		TMPD ABCD 0 A_ThompsonSpriteSelect();
@@ -585,7 +585,7 @@ class RIThompson:HDWeapon{
 			let mmm=hdmagammo(findinventory("HD9mMag30"));
 			if(mmm){
 				invoker.weaponstatus[TMPS_MAG]=mmm.TakeMag(true);
-				A_PlaySound("weapons/tmpdrumin",CHAN_BODY);
+				A_StartSound("weapons/tmpdrumin",CHAN_BODY);
 			}
 		}
 		#### # 0 A_JumpIf(invoker.weaponstatus[TMPS_CHAMBER]<=1,"chamber");
@@ -600,12 +600,12 @@ class RIThompson:HDWeapon{
 		TMPL ABCD 0 A_ThompsonSpriteSelect();
 		#### # 4 offset(10,32);	
 		TMPI ABCD 0 A_ThompsonSpriteSelect();
-		#### # 5 offset(10,32)A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 5 offset(10,32)A_StartSound("weapons/pocket",CHAN_WEAPON);
 		TMPJ ABCD 0 A_ThompsonSpriteSelect();
 		#### # 5 offset(11,34);
 		TMPK ABCD 0 A_ThompsonSpriteSelect();
 		#### # 3 offset(14,37){
-			A_PlaySound("weapons/tmpboltback",CHAN_WEAPON);
+			A_StartSound("weapons/tmpboltback",CHAN_WEAPON);
 			invoker.weaponstatus[TMPS_CHAMBER]=2;
 		}
 		#### # 2 offset(20,36);

@@ -3011,7 +3011,7 @@ Sprite "ASTMA0", 320, 168
 	Patch "AUTOZM2", 128, 52
 }
 
-Sprite "SHOTSHEL", 9, 9
+Graphic "SHOTSHEL", 9, 9
 {
 	Patch "RISHEL", 0, 0
 }
@@ -3370,7 +3370,7 @@ Sprite "ASSMB0", 8, 20
 	}
 }
 
-Sprite "ASSMNORM", 8, 20
+Graphic "ASSMNORM", 8, 20
 {
 	Offset 4, 17
 	Patch "RPRBOX", 0, 0
@@ -3379,7 +3379,7 @@ Sprite "ASSMNORM", 8, 20
 	}
 }
 
-Sprite "ASSMGREY", 8, 20
+Graphic "ASSMGREY", 8, 20
 {
 	Offset 4, 17
 	Patch "RPRBOX", 0, 0

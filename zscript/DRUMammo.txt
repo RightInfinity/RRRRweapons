@@ -38,7 +38,7 @@ class RITmpsD70:HD9mMag15{
 			||owner.A_JumpIfInventory(roundtype,0,"null")
 		)return false;
 		HDF.Give(owner,roundtype,1);
-		owner.A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+		owner.A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		mags[mags.size()-1]--;
 //		extracttime=6+(mags[mindex]*0.08); //0.058 orig calc, felt bad
 		if(mags[mindex]>=60){
@@ -57,7 +57,7 @@ class RITmpsD70:HD9mMag15{
 			extracttime=2;
 		}
 		if(mags[mindex]==0){
-		owner.A_PlaySound("weapons/tmpdrumfin",CHAN_WEAPON);
+		owner.A_StartSound("weapons/tmpdrumfin",CHAN_WEAPON);
 		}
 		return true;
 	}
@@ -70,7 +70,7 @@ class RITmpsD70:HD9mMag15{
 			||!owner.countinv(roundtype)
 		)return false;
 		owner.A_TakeInventory(roundtype,1,TIF_NOTAKEINFINITE);
-		owner.A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+		owner.A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		mags[mags.size()-1]++;
 //		inserttime=6+(mags[mindex]*0.1);
 		if(mags[mindex]>=60){
@@ -166,7 +166,7 @@ class RIReapD20:HD9mMag15{
 			||owner.A_JumpIfInventory(roundtype,0,"null")
 		)return false;
 		HDF.Give(owner,roundtype,1);
-		owner.A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+		owner.A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		mags[mags.size()-1]--;
 //		extracttime=6+(mags[mindex]*0.08); //0.058 orig calc, felt bad
 		if(mags[mindex]>=17){
@@ -181,7 +181,7 @@ class RIReapD20:HD9mMag15{
 			extracttime=4;
 		}
 		if(mags[mindex]==0){
-		owner.A_PlaySound("weapons/tmpdrumfin",CHAN_WEAPON);
+		owner.A_StartSound("weapons/tmpdrumfin",CHAN_WEAPON);
 		}
 		return true;
 	}
@@ -194,7 +194,7 @@ class RIReapD20:HD9mMag15{
 			||!owner.countinv(roundtype)
 		)return false;
 		owner.A_TakeInventory(roundtype,1,TIF_NOTAKEINFINITE);
-		owner.A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+		owner.A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		mags[mags.size()-1]++;
 //		inserttime=6+(mags[mindex]*0.1);
 		if(mags[mindex]>=17){
@@ -314,7 +314,7 @@ class RIReapM8:HD9mMag15{
 			||owner.A_JumpIfInventory(roundtype,0,"null")
 		)return false;
 		HDF.Give(owner,roundtype,1);
-		owner.A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+		owner.A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		mags[mags.size()-1]--;
 //		extracttime=6+(mags[mindex]*0.08); //0.058 orig calc, felt bad
 		if(mags[mindex]>=7){
@@ -327,7 +327,7 @@ class RIReapM8:HD9mMag15{
 			extracttime=6;
 		}
 		if(mags[mindex]==0){
-		owner.A_PlaySound("weapons/tmpdrumfin",CHAN_WEAPON);
+		owner.A_StartSound("weapons/tmpdrumfin",CHAN_WEAPON);
 		}
 		return true;
 	}
@@ -340,7 +340,7 @@ class RIReapM8:HD9mMag15{
 			||!owner.countinv(roundtype)
 		)return false;
 		owner.A_TakeInventory(roundtype,1,TIF_NOTAKEINFINITE);
-		owner.A_PlaySound("weapons/rifleclick2",CHAN_WEAPON);
+		owner.A_StartSound("weapons/rifleclick2",CHAN_WEAPON);
 		mags[mags.size()-1]++;
 //		inserttime=6+(mags[mindex]*0.1);
 		if(mags[mindex]>=7){

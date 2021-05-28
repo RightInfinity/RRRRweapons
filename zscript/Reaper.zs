@@ -68,7 +68,7 @@ class RIReaper:HDWeapon{
 			spread:spread,speedfactor:speedfactor,amount:7
 		);
 		distantnoise.make(p,"world/shotgunfar");
-		caller.A_PlaySound("weapons/rprbang",CHAN_WEAPON);
+		caller.A_StartSound("weapons/rprbang",CHAN_WEAPON);
 		return shotpower;
 	}
 	action void A_FireReaper(){
@@ -383,7 +383,7 @@ class RIReaper:HDWeapon{
 			}
 		#### # 0{if(invoker.shotpower>0.903)setweaponstate("rechamber");
 			}
-		#### # 0 A_PlaySound("weapons/riflejam",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/riflejam",CHAN_WEAPON);
 		goto ready;
 	rechamber:
 		#### # 0{
@@ -439,14 +439,14 @@ class RIReaper:HDWeapon{
 		ASTA JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 0 A_JumpIf(invoker.weaponstatus[ASHTS_CHAMBER]>0,"nope");
 		#### # 0 A_JumpIf(!countinv("HDShellAmmo"),"nope");
-		#### # 1 offset(0,34) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 1 offset(0,34) A_StartSound("weapons/pocket",CHAN_WEAPON);
 		#### # 1 offset(2,36);
 		#### # 1 offset(5,40);
 		#### # 4 offset(4,39){
 			if(countinv("HDShellAmmo")){
 				A_TakeInventory("HDShellAmmo",1,TIF_NOTAKEINFINITE);
 				invoker.weaponstatus[ASHTS_CHAMBER]=3;
-				A_PlaySound("weapons/smgchamber",CHAN_WEAPON);
+				A_StartSound("weapons/smgchamber",CHAN_WEAPON);
 			}
 		}
 		#### # 7 offset(5,37);
@@ -534,7 +534,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 		#### # 1 offset(0,24) A_SetCrosshair(21);
 		#### # 2 offset(2,28);
 		ASTB JIHGFEDCBA 0 A_ReaperSpriteSelect();
-		#### # 3 offset(4,32) A_PlaySound("weapons/rprdrmot",CHAN_WEAPON);
+		#### # 3 offset(4,32) A_StartSound("weapons/rprdrmot",CHAN_WEAPON);
 		ASTC JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 5 offset(6,36);
 		ASTD JIHGFEDCBA 0 A_ReaperSpriteSelect();
@@ -543,7 +543,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 		}
 		ASTE JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 5 offset(8,42);
-		ASTZ A 0 offset(8,42) A_PlaySound("weapons/smgmagmove",CHAN_WEAPON);
+		ASTZ A 0 offset(8,42) A_StartSound("weapons/smgmagmove",CHAN_WEAPON);
 		#### # 5 offset(8,42);
 		#### # 0{
 			int magamt=invoker.weaponstatus[ASHTS_MAG];
@@ -560,7 +560,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 				setweaponstate("magout");
 			}else{
 				HDMagAmmo.GiveMag(self,"RIReapD20",magamt);
-				A_PlaySound("weapons/pocket",CHAN_WEAPON);
+				A_StartSound("weapons/pocket",CHAN_WEAPON);
 				setweaponstate("pocketmag");
 			}
 		}
@@ -570,7 +570,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 		#### # 1 offset(0,24) A_SetCrosshair(21);
 		#### # 2 offset(2,28);
 		ASTB JIHGFEDCBA 0 A_ReaperSpriteSelect();
-		#### # 3 offset(4,32) A_PlaySound("weapons/rprdrmot",CHAN_WEAPON);
+		#### # 3 offset(4,32) A_StartSound("weapons/rprdrmot",CHAN_WEAPON);
 		ASTC JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 4 offset(6,36);
 		ASTD JIHGFEDCBA 0 A_ReaperSpriteSelect();
@@ -579,7 +579,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 		}
 		ASTE JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 4 offset(8,42);
-		ASTZ A 0 offset(8,42) A_PlaySound("weapons/smgmagmove",CHAN_WEAPON);
+		ASTZ A 0 offset(8,42) A_StartSound("weapons/smgmagmove",CHAN_WEAPON);
 		#### # 4 offset(8,42);
 
 		#### # 0{
@@ -597,20 +597,20 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 				setweaponstate("magout");
 			}else{
 				HDMagAmmo.GiveMag(self,"RIReapM8",magamt);
-				A_PlaySound("weapons/pocket",CHAN_WEAPON);
+				A_StartSound("weapons/pocket",CHAN_WEAPON);
 				setweaponstate("pocketmag");
 			}
 		}
 	pocketmag:
 		ASTZ A 2 offset(8,42);
-		#### # 7 offset(8,42) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 7 offset(8,42) A_StartSound("weapons/pocket",CHAN_WEAPON);
 		#### # 7 offset(8,42) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
 //		#### # 0 {
 //				if(invoker.weaponstatus[ASHTS_BOXER]==1){
 //					setweaponstate("magout");
 //					}
 //				}
-		#### # 7 offset(8,42) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 7 offset(8,42) A_StartSound("weapons/pocket",CHAN_WEAPON);
 		#### # 7 offset(8,42) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
 	magout:
 		#### # 0{
@@ -636,7 +636,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 
 	loadmag:
 //		#### # 0 A_Log("Loadmag",true);
-		#### # 0 A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/pocket",CHAN_WEAPON);
 		ASTZ A 10 offset(8,42);
 		#### # 0{
 			invoker.weaponstatus[ASHTS_BOXER]=0;
@@ -644,21 +644,21 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 			let mmm=hdmagammo(findinventory("RIReapD20"));
 			if(mmm){
 				invoker.weaponstatus[ASHTS_MAG]=mmm.TakeMag(true);
-				A_PlaySound("weapons/smgmagclick",CHAN_BODY);
+				A_StartSound("weapons/smgmagclick",CHAN_BODY);
 			}
 		}
 		ASTE JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 6 offset(8,42) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
 		ASTD JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 6 offset(8,42) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
-		#### # 0 A_PlaySound("weapons/rprdrmin",CHAN_BODY);
+		#### # 0 A_StartSound("weapons/rprdrmin",CHAN_BODY);
 		ASTC JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 6 offset(6,36);
 		goto reloadend;
 		
 	loadboxmag:
 //		#### # 0 A_Log("Loadbox",true);
-		#### # 0 A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/pocket",CHAN_WEAPON);
 		ASTZ A 5 offset(8,42);
 		#### # 0{
 			invoker.weaponstatus[ASHTS_BOXER]=1;
@@ -666,14 +666,14 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 			let mmm=hdmagammo(findinventory("RIReapM8"));
 			if(mmm){
 				invoker.weaponstatus[ASHTS_MAG]=mmm.TakeMag(true);
-				A_PlaySound("weapons/smgmagclick",CHAN_BODY);
+				A_StartSound("weapons/smgmagclick",CHAN_BODY);
 			}
 		}
 		ASTE JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 2 offset(8,42) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
 		ASTD JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 2 offset(8,42) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
-		#### # 0 A_PlaySound("weapons/rprdrmin",CHAN_BODY);
+		#### # 0 A_StartSound("weapons/rprdrmin",CHAN_BODY);
 		ASTC JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 2 offset(6,36);
 		goto reloadend;
@@ -696,7 +696,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 		#### # 4 offset(6,36);
 		ASTH JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 3 offset(6,36) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
-		#### # 0 A_PlaySound("weapons/rprbolt",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/rprbolt",CHAN_WEAPON);
 		#### # 2 offset(8,36);
 		ASTI JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 2 offset(10,36){if(!invoker.weaponstatus[ASHTS_CHAMBER]==0)invoker.weaponstatus[ASHTS_CHAMBER]=2;}
@@ -726,7 +726,7 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 		#### # 4 offset(6,36);
 		ASTH JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 3 offset(6,36) A_MuzzleClimb(frandom(0.2,-0.8),frandom(-0.2,0.4));
-		#### # 0 A_PlaySound("weapons/rprbolt",CHAN_WEAPON);
+		#### # 0 A_StartSound("weapons/rprbolt",CHAN_WEAPON);
 		#### # 2 offset(8,36);
 		ASTI JIHGFEDCBA 0 A_ReaperSpriteSelect();
 		#### # 2 offset(10,36);

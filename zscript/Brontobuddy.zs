@@ -25,7 +25,7 @@ class RIBrontoBuddy:Brontornis{
 			uamt-=maxpocket;
 			A_GiveInventory("BrontornisRound",maxpocket);
 		}
-		A_PlaySound("weapons/pocket");
+		A_StartSound("weapons/pocket");
 		EmptyHand(uamt);
 	}
 	action void A_CannibalizeOtherShotgun(){
@@ -86,7 +86,7 @@ class RIBrontoBuddy:Brontornis{
 	override void failedpickupunload(){
 		int sss=weaponstatus[BRONS_SIDESADDLE];
 		if(sss<1)return;
-		A_PlaySound("weapons/pocket",5);
+		A_StartSound("weapons/pocket",5);
 		int dropamt=min(sss,1);
 		A_DropItem("BrontornisRound",dropamt);
 		weaponstatus[BRONS_SIDESADDLE]-=dropamt;
@@ -121,9 +121,9 @@ class RIBrontoBuddy:Brontornis{
 				return;
 			}
 			A_GunFlash();
-			A_PlaySound("weapons/bronto",CHAN_WEAPON);
-			A_PlaySound("weapons/bronto",6);
-			A_PlaySound("weapons/bronto2",7);
+			A_StartSound("weapons/bronto",CHAN_WEAPON);
+			A_StartSound("weapons/bronto",6);
+			A_StartSound("weapons/bronto2",7);
 			let tb=HDBulletActor.FireBullet(
 				self,"HDB_bronto",
 				aimoffy:(invoker.weaponstatus[0]&BRONF_ZOOM)?-2:0
@@ -234,7 +234,7 @@ class RIBrontoBuddy:Brontornis{
 			else{
 				A_TakeInventory("BrontornisRound",hnd);
 				invoker.weaponstatus[BRONS_SIDESADDLE]+=hnd;
-				A_PlaySound("weapons/pocket",CHAN_WEAPON);
+				A_StartSound("weapons/pocket",CHAN_WEAPON);
 			}
 		}
 		BLSG A 0 {
@@ -292,7 +292,7 @@ class RIBrontoBuddy:Brontornis{
 			-frandom(0.5,0.6),frandom(0.5,0.6),
 			-frandom(0.5,0.6),frandom(0.5,0.6)
 		);
-		BLSG B 3 A_PlaySound("weapons/brontunload",CHAN_WEAPON);
+		BLSG B 3 A_StartSound("weapons/brontunload",CHAN_WEAPON);
 		BLSG BBBBBBBB 0{invoker.drainheat(BRONS_HEAT,12);}
 		BLSG B 12 offset(0,34){
 			int chm=invoker.weaponstatus[BRONS_CHAMBER];
@@ -302,14 +302,14 @@ class RIBrontoBuddy:Brontornis{
 				return;
 			}
 
-			A_PlaySound("weapons/brontoload",CHAN_AUTO);
+			A_StartSound("weapons/brontoload",CHAN_AUTO);
 			if(chm>1){
 				if(
 					PressingUnload()
 					&&!A_JumpIfInventory("BrontornisRound",0,"null")
 				){
 					A_SetTics(18);
-					A_PlaySound("weapons/pocket");
+					A_StartSound("weapons/pocket");
 					A_GiveInventory("BrontornisRound");
 				}
 				else A_SpawnItemEx("BrontornisRound",
@@ -331,7 +331,7 @@ class RIBrontoBuddy:Brontornis{
 		}
 //		#### # 0 A_Log("reload shart",true);
 		BLSG B 1 offset(0,36) A_JumpIf(invoker.weaponstatus[0]&BRONF_JUSTUNLOAD,"reloadend");
-		BLSG B 1 offset(0,41) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		BLSG B 1 offset(0,41) A_StartSound("weapons/pocket",CHAN_WEAPON);
 		BLSG B 1 offset(0,38);
 //		#### # 0 A_Log("farts",true);
 		BLSG B 3 offset(0,36);
@@ -341,7 +341,7 @@ class RIBrontoBuddy:Brontornis{
 		BLSG B 4 offset(0,34){
 			invoker.weaponstatus[BRONS_CHAMBER]=2;
 			A_TakeInventory("BrontornisRound",1,TIF_NOTAKEINFINITE);
-			A_PlaySound("weapons/brontoload",CHAN_WEAPON);
+			A_StartSound("weapons/brontoload",CHAN_WEAPON);
 		}
 		BLSG B 6 offset(0,33);
 		goto reloadend;
@@ -349,20 +349,20 @@ class RIBrontoBuddy:Brontornis{
 		BLSG B 4 offset(0,34){
 			invoker.weaponstatus[BRONS_CHAMBER]=2;
 			invoker.weaponstatus[BRONS_SIDESADDLE]--;
-			A_PlaySound("weapons/brontoload",CHAN_WEAPON);
+			A_StartSound("weapons/brontoload",CHAN_WEAPON);
 		}
 	reloadend:
 		BLSG B 6 offset(0,34);
-		BLSG B 2 offset(0,34) A_PlaySound("weapons/brontunload",CHAN_WEAPON);
+		BLSG B 2 offset(0,34) A_StartSound("weapons/brontunload",CHAN_WEAPON);
 		BLSG B 1 offset(0,36);
 		BLSG B 1 offset(0,34);
 		BLSG BA 4;
-		BLSG A 0 A_PlaySound("weapons/brontoclose",CHAN_WEAPON);
+		BLSG A 0 A_StartSound("weapons/brontoclose",CHAN_WEAPON);
 		goto ready;
 
 	cannibalize:
 		BLSG A 2 offset(0,36) A_JumpIf(!countinv("RIBrontoBuddy"),"nope");
-		BLSG A 2 offset(0,40) A_PlaySound("weapons/pocket",CHAN_WEAPON);
+		BLSG A 2 offset(0,40) A_StartSound("weapons/pocket",CHAN_WEAPON);
 		BLSG A 6 offset(0,42);
 		BLSG A 4 offset(0,44);
 		BLSG A 6 offset(0,42);
