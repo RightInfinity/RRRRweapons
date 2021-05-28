@@ -4,6 +4,10 @@ Hideous Destructor, RightInfinity's Revolting Revolutionary Rweapons (..Nailed i
 
 Changes:
 
+ v4.4.2a Release 2
+  + Fixed GZDoom warnings.
+
+------------------
  v4.4.2a Release 1
   + Reapers jam Slight less again, Not sure what changed but they returned to jamming a ton.
   
