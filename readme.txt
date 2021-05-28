@@ -6,6 +6,8 @@ Changes:
 
  v4.4.2a Release 2
   + Fixed GZDoom warnings.
+  + Added more Reaper help text.
+  + Fixed Reapers reloading wrong magazine types after ammo box refill.
 
 ------------------
  v4.4.2a Release 1

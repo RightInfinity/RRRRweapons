@@ -226,7 +226,8 @@ class RIReaperGL:RIReaper{
 		return
 		WEPHELP_FIRESHOOT
 		..WEPHELP_ALTFIRE.."  Swap to Grenade Launcher\n"
-		..WEPHELP_RELOAD.."  Reload/Cycle bolt\n"
+		..WEPHELP_ALTRELOAD.."  Reload Grenade Launcher\n"
+		..WEPHELP_RELOAD.."  Reload/Cycle bolt (Hold "..WEPHELP_FIREMODE.." to swap magazine types\)\n"
 		..WEPHELP_FIREMODE.."  Destroy/Annihilate\n"
 		..WEPHELP_MAGMANAGER
 		..WEPHELP_UNLOADUNLOAD
@@ -458,6 +459,7 @@ class RIReaperGL:RIReaper{
 		weaponstatus[ASHTS_MAG]=20;
 		weaponstatus[ASHTS_CHAMBER]=3;
 		weaponstatus[ASHTS_BOXER]=0;
+		weaponstatus[ASHTS_BOXEE]=0;
 		if(!idfa)weaponstatus[ASHTS_AUTO]=0;
 	}
 }

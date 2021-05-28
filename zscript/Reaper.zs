@@ -239,7 +239,7 @@ class RIReaper:HDWeapon{
 		WEPHELP_FIRESHOOT
 		..WEPHELP_ALTFIRE.."  Cycle Bolt\n"
 		..WEPHELP_RELOAD.."  Reload/Cycle bolt (Hold "..WEPHELP_FIREMODE.." to swap magazine types\)\n"
-		..WEPHELP_FIREMODE.."Semi / Annhilate\n"
+		..WEPHELP_FIREMODE.."  Destroy/Annhilate\n"
 		..WEPHELP_MAGMANAGER
 		..WEPHELP_UNLOADUNLOAD
 		;
@@ -783,7 +783,8 @@ if(invoker.weaponstatus[ASHTS_MAG]>=20&&invoker.weaponstatus[ASHTS_CHAMBER]==3)s
 	override void InitializeWepStats(bool idfa){
 		weaponstatus[ASHTS_MAG]=20;
 		weaponstatus[ASHTS_CHAMBER]=3;
-//		weaponstatus[ASHTS_BOXER]=0;
+		weaponstatus[ASHTS_BOXER]=0;
+		weaponstatus[ASHTS_BOXEE]=0;
 		if(!idfa)weaponstatus[ASHTS_AUTO]=0;
 	}
 }
