@@ -9,6 +9,7 @@ Changes:
   + Added more Reaper help text.
   + Fixed Reapers reloading wrong magazine types after ammo box refill.
   + Fixed purging useless ammo.
+  + Ammo refill also loads Bronto sidesaddle.
 
 ------------------
  v4.4.2a Release 1

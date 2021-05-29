@@ -380,10 +380,11 @@ class RIBrontoBuddy:Brontornis{
 	}
 	override void InitializeWepStats(bool idfa){
 		weaponstatus[BRONS_CHAMBER]=2;
+		weaponstatus[BRONS_SIDESADDLE]=3;
+
 		if(!idfa){
 			weaponstatus[0]=0;
 			weaponstatus[BRONS_HEAT]=0;
-			weaponstatus[BRONS_SIDESADDLE]=3;
 		}
 	}
 	override void loadoutconfigure(string input){
