@@ -8,6 +8,7 @@ Changes:
   + Fixed GZDoom warnings.
   + Added more Reaper help text.
   + Fixed Reapers reloading wrong magazine types after ammo box refill.
+  + Fixed purging useless ammo.
 
 ------------------
  v4.4.2a Release 1
@@ -114,7 +115,6 @@ Thompson Drum magazine
 
 Known issues:
 	-Reaper ZM does not Cookoff on ground, because I haven't provideded the pile of sprites needed yet.
-	-Purge weaponless ammo will drop loose rounds if you don't have a default weapon using that ammo (Can't Overide "itemsthatusethis")
 
 Spriting credits:
 Tommy gun sprites by YukesVonFaust

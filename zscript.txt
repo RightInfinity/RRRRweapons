@@ -8,4 +8,4 @@ version "4.3"
 #include "zscript/BrontoBuddy.zs"
 #include "zscript/Spawns.txt"
 #include "zscript/RIammo.txt"
-
+#include "zscript/Handlers.zs"
