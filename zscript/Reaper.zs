@@ -65,7 +65,7 @@ class RIReaper:HDWeapon{
 		speedfactor*=shotpower;
 		HDBulletActor.FireBullet(caller,"HDB_wad");
 		let p=HDBulletActor.FireBullet(caller,"HDB_00",
-			spread:spread,speedfactor:speedfactor,amount:7
+			spread:spread,speedfactor:speedfactor,amount:10
 		);
 		distantnoise.make(p,"world/shotgunfar");
 		caller.A_StartSound("weapons/rprbang",CHAN_WEAPON);
