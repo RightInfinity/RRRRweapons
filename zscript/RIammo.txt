@@ -5,11 +5,24 @@ class RI_912CFE:HDBulletActor{
 		speed 1100;
 		accuracy 666;
 		stamina 2317;
-		woundhealth 15;
+		woundhealth 80;
 		hdbulletactor.hardness 5;
 		hdbulletactor.distantsound "world/shotgunfar";
 		hdbulletactor.distantsoundvol 3.;
 		seesound "weapons/riflecrack";
+	}
+}
+class RI_23:HDBulletActor{  //KS-23
+	default{
+		pushfactor 0.5;
+		mass 80;
+		speed 750;
+		accuracy 300;
+		stamina 900;
+		woundhealth 10;
+		hdbulletactor.hardness 0;
+		hdbulletactor.distantsound "world/shotgunfar";
+		hdbulletactor.distantsoundvol .2;
 	}
 }
 
