@@ -1,5 +1,5 @@
 Hideous Destructor, RightInfinity's Revolting Revolutionary Rweapons (..Nailed it)
-Additional Thanks To VinceHo/Grim96
+Additional Polish by VinceHo/Grim96
 
 Changes:
 
@@ -129,9 +129,10 @@ Thanks to:
 TheBadInfluence for doing better research than I could on the nitty gritty Thompson functions
 LtSnowolf for being best battle bud and pointing me at BF:BC2.
 Matt, for having code I can abuse and glue together into something new.
-Breezwagon
+Breezwagon for some bug hunting
 Potetobloke for pointing out I forgot something.
 Some bloke on FPSBanana for ripping the BC2 sounds.
+D2Icarus for bug hunting help.
 
 TODO:
 	-Bullet visible in reload anim
