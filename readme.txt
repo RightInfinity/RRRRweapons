@@ -1,10 +1,11 @@
 Hideous Destructor, RightInfinity's Revolting Revolutionary Rweapons (..Nailed it)
-
+Additional Thanks To VinceHo/Grim96
 
 Changes:
 
 Planned 4.6.0b Release
   + Fixed Reaper pellet count. Was only firing 7 vs the new shotgun shell's 10
+  
 Everything below, Thanks to VinceHo/Grim96
   + Fixed GZDoom warnings.
   + Added more Reaper help text.
