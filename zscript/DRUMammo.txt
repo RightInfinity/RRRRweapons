@@ -239,6 +239,8 @@ class RIReapD20:HD9mMag15{
 		return magsprite,"SHELA0","HDShellAmmo",.60;
 	}
 	states{
+	cacheSprites:
+		RPRD A 0;
 	spawn:
 		ASDM B -1;
 		stop;
