@@ -5,6 +5,7 @@ Changes:
 
 Planned 4.6.0b Release
   + Fixed Reaper pellet count. Was only firing 7 vs the new shotgun shell's 10
+  + Fixed Reaper Drums blowing up GZdoom with Action bubbles. Thank you To Emmy and D2 Icarus for helping chase this one down
   
 Everything below, Thanks to VinceHo/Grim96
   + Fixed GZDoom warnings.
